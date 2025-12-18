@@ -1,0 +1,126 @@
+/* FONT */
+body, h1, h2, button {
+    font-family: 'Pacifico', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+/* CENTER EVERYTHING */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* BACKGROUND IMAGE */
+#background {
+    position: fixed;
+    inset: 0;
+    background-image: url("https://4kwallpapers.com/images/wallpapers/pink-hearts-black-background-bokeh-glowing-lights-vibrant-3447x2299-3409.jpg");
+    background-size: cover;
+    background-position: center;
+    animation: bgFade 10s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes bgFade {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* PAGE 1 & 2 TEXT ANIMATION */
+.main-text {
+    font-size: 42px;
+    opacity: 0;
+    animation: textZoom 1.8s forwards;
+}
+
+@keyframes textZoom {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* BUTTON */
+.main-button {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 22px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background: #ff6fae;
+    color: white;
+    opacity: 0;
+    animation: buttonUp 1.5s forwards;
+    animation-delay: 1.3s;
+}
+
+@keyframes buttonUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.main-button:hover {
+    background: #ff3385;
+    transform: scale(1.05);
+}
+
+/* LYRICS */
+#lyrics {
+    font-size: 36px;
+    min-height: 120px;
+    z-index: 2;
+}
+
+/* WORD ANIMATION */
+.word {
+    opacity: 0;
+    display: inline-block;
+    margin-right: 6px;
+    animation: wordFade 0.5s forwards;
+}
+
+@keyframes wordFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* FLOATING HEARTS */
+.hearts {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #ff69b4;
+    transform: rotate(-45deg);
+    animation: float 6s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #ff69b4;
+    border-radius: 50%;
+}
+
+.heart::before { top: -9px; left: 0; }
+.heart::after { left: 9px; top: 0; }
+
+@keyframes float {
+    from { transform: translateY(100vh) rotate(-45deg); opacity: 1; }
+    to { transform: translateY(-50vh) rotate(-45deg); opacity: 0; }
+}
